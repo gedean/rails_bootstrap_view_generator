@@ -1,0 +1,1 @@
+# rails_bootstrap_view_generator
