@@ -1,0 +1,15 @@
+.form.col-xs-12.col-sm-12.col-md-12.col-lg-12
+  = simple_form_for @<%= resource_name %>, html: { class: 'form-horizontal' } do |f|
+  <%- columns.each do |column| -%>
+    .row
+      = f.input :<%= column.name %>, label: :<%= column.name %>, wrapper_html: { class: 'col-xs-12 col-sm-12 col-md-12 col-lg-12' }
+  <%- end -%>
+    br
+    .row  
+      <%- if ::SimpleForm::FormBuilder.instance_methods.include?(:wrapped_button) -%>
+        = f.button :wrapped, cancel: <%= controller_routing_path %>_path
+      <%- else -%>
+        = f.button :submit, value: 'Salvar', class: 'btn-primary'
+        '
+        = link_to 'Cancelar', <%= controller_routing_path %>_path, class: 'btn btn-default'
+      <%- end -%>

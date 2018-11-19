@@ -1,0 +1,5 @@
+Description:
+  Creates bootrap based views
+
+Example:
+  rails generate bootstrap_views

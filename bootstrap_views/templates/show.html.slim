@@ -1,0 +1,14 @@
+= render partial: '<%= view_base_path %>/partials/header'
+
+<%- columns.each do |column| -%>
+p
+  strong <%= column.name %>:
+  '
+  = @<%= resource_name %>.<%= column.name %>
+<%- end -%>
+
+= link_to 'Voltar', <%= controller_routing_path %>_path, class: 'btn btn-default'
+'
+= link_to 'Editar', edit_<%= singular_controller_routing_path %>_path(@<%= resource_name %>), class: 'btn btn-default'
+'
+= link_to 'Excluir', <%= singular_controller_routing_path %>_path(@<%= resource_name %>), method: :delete, data: { confirm: 'Tem Certeza?' }, class: 'btn btn-danger', style: 'color: #fff'
